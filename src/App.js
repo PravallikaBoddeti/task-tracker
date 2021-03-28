@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { AddTask } from './components/AddTask';
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 
 function App() {
+  const [toggleAdd, setToggleAdd] = useState(false);
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -24,6 +26,13 @@ function App() {
     }
   ]);
 
+  const addTask = (task) => {
+    // console.log(task);
+    const id = Math.floor(Math.random() * 1000);
+    const newTask = { ...task, id };
+    setTasks([...tasks, newTask]);
+  }
+
   const deleteTask = (id) => {
     // console.log(id);
     setTasks(tasks.filter((task) => task.id !== id))
@@ -41,7 +50,11 @@ function App() {
       {/* <h1>Hellooo {name} </h1> */}
       {/* <Header /> */}
       {/* <Header title="This is a" /> (passing props) */}
-      <Header /> {/* <Header /> with default props */}
+      <Header onAdd={() => setToggleAdd(!toggleAdd)} showAdd={toggleAdd} /> {/* <Header /> with default props */}
+      {
+        toggleAdd &&
+        <AddTask onAdd={addTask} />
+      }
       {
         tasks.length > 0
           ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleTask} />

@@ -19,10 +19,11 @@ import Button from './Button';
 // }
 
 // props destructuring
-const Header = ({ title }) => {
-  const onClick = () => {
-    console.log("click");
-  }
+const Header = ({ title, onAdd, showAdd }) => {
+  // const onClick = () => {
+  //   // console.log("click");
+  //   onAdd();
+  // }
 
   return (
     <header className="header">
@@ -30,7 +31,7 @@ const Header = ({ title }) => {
       {/* <h1 style={headerStyle}>{title} Task Tracker</h1> (inline style with valiable) */}
 
       <h1>{title} Task Tracker</h1>
-      <Button color='green' text="Add" onClick={onClick} />
+      <Button color={showAdd ? 'red' : 'green'} text={showAdd ? 'Close' : 'Add'} onClick={onAdd} />
     </header>
   )
 }
