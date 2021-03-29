@@ -1,21 +1,22 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "text": "Learning",
-      "day": "Mar 24 at 5:00 Am",
-      "reminder": true
-    },
-    {
-      "id": 2,
-      "text": "Practice",
-      "day": "Mar 24 at 10:00 Am",
-      "reminder": true
-    },
-    {
-      "id": 3,
-      "text": "Refresh",
-      "day": "Mar 24 at 2:00 Pm",
-      "reminder": false
-    }]
+        "id": 1,
+        "text": "Learning",
+        "day": "Mar 24 at 5:00 Am",
+        "reminder": true
+      },
+      {
+        "id": 2,
+        "text": "Practice",
+        "day": "Mar 24 at 10:00 Am",
+        "reminder": true
+      },
+      {
+        "id": 3,
+        "text": "Refresh",
+        "day": "Mar 24 at 2:00 Pm",
+        "reminder": false
+      }
+  ]
 }
