@@ -21,7 +21,7 @@
     {
       "text": "Music",
       "day": "Mar 27 at 6:00 Pm",
-      "reminder": false,
+      "reminder": true,
       "id": 4
     }
   ]

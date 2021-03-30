@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { AddTask } from './components/AddTask';
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Tasks from "./components/Tasks";
+import { About } from './components/About';
 
 function App() {
   const [toggleAdd, setToggleAdd] = useState(false);
@@ -92,21 +95,30 @@ function App() {
 
   // let name = 'Sweety';
   return (
-    <div className="container">
-      {/* <h1>Hellooo {name} </h1> */}
-      {/* <Header /> */}
-      {/* <Header title="This is a" /> (passing props) */}
-      <Header onAdd={() => setToggleAdd(!toggleAdd)} showAdd={toggleAdd} /> {/* <Header /> with default props */}
-      {
-        toggleAdd &&
-        <AddTask onAdd={addTask} />
-      }
-      {
-        tasks.length > 0
-          ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleTask} />
-          : 'No tasks to show'
-      }
-    </div>
+    <Router>
+      <div className="container">
+        {/* <h1>Hellooo {name} </h1> */}
+        {/* <Header /> */}
+        {/* <Header title="This is a" /> (passing props) */}
+        <Header onAdd={() => setToggleAdd(!toggleAdd)} showAdd={toggleAdd} /> {/* <Header /> with default props */}
+        <Route path="/" exact render={() => (
+          <>
+            {
+              toggleAdd &&
+              <AddTask onAdd={addTask} />
+            }
+            {
+              tasks.length > 0
+                ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleTask} />
+                : 'No tasks to show'
+            }
+          </>
+        )}
+        />
+        <Route path="/about" component={About} />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
